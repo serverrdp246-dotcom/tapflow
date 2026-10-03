@@ -1,0 +1,12 @@
+services:
+  relay:
+    image: tapflow/tapflow:latest
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./data:/app/.tapflow/data
+    environment:
+      - TAPFLOW_RELAY_URL=http://<this-box-ip>:4000
+      - TAPFLOW_ADMIN_EMAIL=you@example.com
+      - TAPFLOW_ADMIN_PASSWORD=<at least 8 characters>
+    restart: unless-stopped
